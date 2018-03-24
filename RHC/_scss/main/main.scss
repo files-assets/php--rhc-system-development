@@ -1,0 +1,18 @@
+html {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  font-size: $default-size;
+  color: $dark;
+  background-color: $light;
+  font-family: $primary-font-stack, $emoji-font-stack;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background-color: $primary;
+  color: $light;
+}

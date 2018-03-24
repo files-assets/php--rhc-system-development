@@ -1,0 +1,59 @@
+.sys-footer {
+  .sys-footer-linklist {
+    background-color: $dark;
+    padding: 20px 0;
+    box-shadow: 0px -4px rgba(0,0,0,0.2), inset 0px -35px 17px rgba(0, 0, 0, 0.11);
+
+    a {
+      background-color: $primary;
+      display: inline-block;
+      background-image: linear-gradient(to bottom, lighten($primary, 4%), darken($primary, 4%));
+      padding: 4px 16px 5px 16px;
+      border-radius: 20px;
+      margin-right: 5px;
+      color: $light;
+      cursor: pointer;
+      text-decoration: none;
+      transform: none;
+      transition: all linear 130ms;
+      box-shadow: inset 0 -2px rgba(19, 16, 16, 0.2), inset 0 1px rgba(255, 255, 255, 0.31);
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      &:last-child {
+        margin: 0 !important;
+      }
+
+      @media screen and (max-width: 991px) {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .sys-footer-attr {
+    padding: 20px 0;
+    backgroundcolor: $dark;
+    background-image: linear-gradient(to bottom, $dark, $dark-dark);
+    color: darken($light, 15%);
+    border-bottom: solid 4px $primary;
+    line-height: 1.6;
+
+    .sys-made-by {
+      margin-top: 7px;
+
+      a {
+        color: inherit;
+        border-bottom: solid 1px;
+        text-decoration: none;
+
+        &:hover {
+          color: #39c;
+        }
+      }
+    }
+  }
+}

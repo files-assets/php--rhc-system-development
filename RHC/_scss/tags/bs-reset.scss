@@ -1,0 +1,43 @@
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.form-group {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dropdown-menu {
+  border: 0;
+  box-shadow: $box-1;
+  display: block;
+  opacity: 0;
+  transform: translate(0, -1rem);
+  pointer-events: none;
+  transition: all 150ms linear;
+
+  &.show {
+    opacity: 1;
+    transform: translate(0, 0);
+    pointer-events: auto;
+  }
+
+  .dropdown-item {
+    display: block;
+    color: $dark-light;
+    background-color: $light;
+    padding: .25rem 2rem .25rem 1rem;
+    transition: all linear 60ms;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.form-control {
+  box-shadow: $box-3;
+}

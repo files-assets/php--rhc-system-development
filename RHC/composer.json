@@ -1,0 +1,22 @@
+{
+  "name": "lffg/mvc",
+  "description": "Estrutura MVC para PHP.",
+  "type": "mvc-structure",
+  "keywords": [
+    "php",
+    "php-7",
+    "mvc",
+    "mvc-architecture",
+    "mvc-structure",
+    "back-end"
+  ],
+  "time": "2017-12-17",
+  "authors": [{
+    "name": "Luiz Felipe Frazão",
+    "email": "frazaolipe@gmail.com",
+    "homepage": "https://lffg.github.io/",
+    "role": "Developer"
+  }],
+  "license": "MIT",
+  "require": {}
+}

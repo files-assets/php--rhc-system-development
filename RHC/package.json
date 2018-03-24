@@ -1,0 +1,19 @@
+{
+  "name": "rhc",
+  "version": "1.0.0",
+  "description": "rhc's site",
+  "scripts": {
+    "devserver": "webpack-dev-server --open",
+    "build": "webpack",
+    "start": "webpack --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cli": "^1.4.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0"
+  }
+}

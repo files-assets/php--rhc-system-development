@@ -1,0 +1,30 @@
+//Fonts:
+$primary: #39c;
+$secondary: #2eb885;
+
+$primary-dark: darken($primary, 5%);
+$primary-secondary: darken($secondary, 5%);
+
+$dark-light: #444;
+$dark: darken($dark-light, 4%);
+$dark-dark: darken($dark, 4%);
+
+$light: #fff;
+$light-light: darken($light, 7%);
+
+$border: #ddd;
+
+// Fonts:
+$primary-font-stack: "Segoe UI", -apple-system, BlinkMacSystemFont, "Ubuntu", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$emoji-font-stack: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$trebuchet-font: "Trebuchet MS", "Ubuntu", $primary-font-stack;
+
+// Others:
+$trans: all 125ms ease-in-out;
+
+$default-size: 17px;
+
+$box-1: 0 0 0 1px rgba(0, 0, 0, .2), inset 0 -4px rgba(0, 0, 0, .1), 0 4px rgba(0, 0, 0, .1);
+$box-2: 0 0 0 1px rgba(0, 0, 0, .08), inset 0 -4px rgba(0, 0, 0, .1), 0 4px rgba(0, 0, 0, .1);
+$box-3: 0 1px 0 #fff, inset 0 -2px 5px rgba(0, 0, 0, .08);
+$box-t: rgba(0, 0, 0, .0), inset 0 -4px rgba(0, 0, 0, .0), 0 4px rgba(0, 0, 0, .0)

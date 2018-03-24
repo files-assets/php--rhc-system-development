@@ -1,0 +1,50 @@
+.sys-header {
+  .sys-navbar {
+    position: relative;
+    background-color: $primary;
+    padding: 11px 0;
+
+    .navbar-brand {
+      display: block;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $light;
+      font-size: 1.375rem;
+      letter-spacing: .5px;
+    }
+
+    ul {
+      & > .navbar-item {
+        margin-right: 5px;
+        z-index: 1;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        & > .nav-link {
+          z-index: 1;
+          color: $light;
+          font-size: $default-size;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border-radius: 4px;
+          position: relative;
+          overflow: hidden;
+          transition: all 150ms linear;
+
+          &:hover,
+          &[aria-expanded="true"] {
+            color: $primary;
+            background-color: #fff;
+            box-shadow: $box-2;
+          }
+        }
+      }
+    }
+  }
+}
