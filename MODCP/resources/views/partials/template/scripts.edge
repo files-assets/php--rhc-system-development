@@ -1,0 +1,11 @@
+{{ script('js/vendor/jquery.min') }}
+{{ script('js/vendor/popper.min') }}
+{{ script('js/vendor/bootstrap.min') }}
+
+@loggedIn
+  {{ script('js/index') }}
+@else
+  {{ script('js/not-auth') }}
+@endloggedIn
+
+@!section('scripts')

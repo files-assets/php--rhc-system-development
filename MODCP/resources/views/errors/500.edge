@@ -1,0 +1,19 @@
+@layout('error')
+
+@section('title')
+  Erro Interno &middot; MODCP
+@endsection
+
+@section('content')
+  <span class="error-emoticon">:(</span>
+  <h1 class="error-title">
+    Erro Interno
+  </h1>
+  <p class="error-desc">
+    Desculpe, mas houve um erro interno do servidor. <br />
+    Tente atualizar a página.
+  </p>
+  <a href="#" onclick="window.location.reload();" class="btn btn-light error-button">
+    <i class="fa fa-refresh"></i> Atualizar a Página
+  </a>
+@endsection

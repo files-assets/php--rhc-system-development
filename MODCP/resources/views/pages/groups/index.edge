@@ -1,0 +1,68 @@
+@layout('master')
+
+@section('title')
+  @if(data.page && data.page != 1)
+    Grupos — Página {{ data.page }} &middot; MODCP
+  @else
+    Grupos &middot; MODCP
+  @endif
+@endsection
+
+@section('breadcrumb')
+  <li class="breadcrumb-item">
+    Grupos
+  </li>
+@endsection
+
+@section('content')
+  <h1 class="mb-5">
+    <span>Grupos</span>
+    @if(data.page && data.page != 1)
+      <span> &middot; Página {{ data.page }}</span>
+    @endif
+  </h1>
+
+  @if(data.data.length != 0)
+    <table class="table table-hover text-center">
+      <thead class="thead-light">
+        <th>#</th>
+        <th>Nome</th>
+        <th>Membros</th>
+        <th>Permissões</th>
+        <th>Ações</th>
+      </thead>
+      <tbody>
+        @each(group in data.data)
+          <tr>
+            <td>{{ group.id }}</td>
+            <td>
+              <strong style="color: {{ group.color }};">{{ group.name }}</strong>
+            </td>
+            <td>
+              <a href="{{ route('groups.show', { id: group.id }) }}#members">
+                Ver Membros
+              </a>
+            </td>
+            <td>
+              <a href="{{ route('groups.show', { id: group.id }) }}#permissions">
+                Ver Permissões
+              </a>
+            </td>
+            <td>...</td>
+          </tr>
+        @endeach
+      </tbody>
+    </table>
+
+    @!component('components.pagination', page = data.page, lastPage = data.lastPage, href = route('groups.index'))
+  @else
+    <div class="alert alert-dark">
+        <h4 class="alert-heading">Nenhum registro encontrado</h4>
+        <p>Nenhum registro foi encontrado seguindo os parâmetros de consulta.</p>
+        <hr />
+        <p class="mb-0">
+          Clique <a href="{{ route('groups.index') }}/?page=1" class="alert-link">aqui</a> para voltar à primeira página.
+        </p>
+    </div>
+  @endif
+@endsection

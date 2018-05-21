@@ -1,0 +1,115 @@
+@layout('master')
+
+@section('title')
+  Dashboard &middot; MODCP
+@endsection
+
+@section('content')
+  <div class="row mb-3">
+    <div class="col-md-4 mb-3 mb-md-0">
+      <div class="card bg-primary text-white">
+        <div class="card-body">
+          <div class="info-card-inner">
+            <i class="fa fa-globe icon"></i>
+            <div class="info">
+              <span class="main">64</span>
+              <span class="desc">Fóruns denunciados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3 mb-md-0">
+      <div class="card bg-primary text-white">
+        <div class="card-body">
+          <div class="info-card-inner">
+            <i class="fa fa-ban icon"></i>
+            <div class="info">
+              <span class="main">34</span>
+              <span class="desc">Usuários banidos no FDF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3 mb-md-0">
+      <div class="card bg-primary text-white">
+        <div class="card-body">
+          <div class="info-card-inner">
+            <i class="fa fa-users icon"></i>
+            <div class="info">
+              <span class="main">12</span>
+              <span class="desc">Usuários ativos no MODCP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12">
+        <div class="card">
+        <header class="card-header">
+          <i class="fa fa-users"></i>
+          Usuários Online <strong class="badge badge-dark">{{ online_list.length }}</strong>
+        </header>
+        <div class="marquee card-body">
+          @each(user in online_list)
+            <a href="{{ route('users.show', { id: user.id }) }}">
+              <strong style="color: {{ user.group.color }};">{{ user.username}}</strong>
+            </a>
+            @unless($loop.last)
+              <span> &middot; </span>
+            @endunless
+          @else
+            Não há usuários online.
+          @endeach
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <div class="card">
+        <header class="card-header">
+          <i class="fa fa-newspaper-o"></i> Últimas Notícias
+        </header>
+        <div class="card-body">
+          <ul class="list-group mb-3">
+            <li class="list-group-item">
+              <a href="#">
+                <i class="fa fa-arrow-circle-o-right fa-fw"></i> Cras justo odio
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#">
+                <i class="fa fa-arrow-circle-o-right fa-fw"></i> Dapibus ac facilisis in
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#">
+                <i class="fa fa-arrow-circle-o-right fa-fw"></i> Vestibulum at eros
+              </a>
+            </li>
+            <li class="list-group-item">
+              <a href="#">
+                <i class="fa fa-arrow-circle-o-right fa-fw"></i> Nulla at nulla
+              </a>
+            </li>
+          </ul>
+          <a href="#" class="btn btn-block btn-secondary">Ver Todas</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3 mb-md-0">
+      <div class="card">
+        <header class="card-header">
+          <i class="fa fa-link"></i> Acesso Rápido
+        </header>
+        <div class="card-body">
+          ...
+        </div>
+      </div>
+    </div>
+  </div>
+@endsection

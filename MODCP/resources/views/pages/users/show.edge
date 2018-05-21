@@ -1,0 +1,88 @@
+@layout('master')
+
+@section('title')
+  {{ user.username }} &middot; MODCP
+@endsection
+
+@section('breadcrumb')
+  <li class="breadcrumb-item">
+    <a href="{{ route('users.index') }}">Usuários</a>
+  </li>
+  <li class="breadcrumb-item">
+    Ver Perfil &middot; {{ user.username }}
+  </li>
+@endsection
+
+@section('content')
+  <h1 class="mb-5">
+    @if(now() - 1000 * 60 < user.last_visit)
+      <span class="badge badge-success badge-pill">On-Line</span>
+    @endif
+    {{ user.username }} <small class="text-muted">— Perfil</small>
+  </h1>
+
+  @if(user.id === auth.user.id)
+    <div class="alert alert-info">
+      Você está vendo o seu perfil público. Clique <a href="{{ route('profile.index') }}" class="alert-link">aqui</a> para ir às configurações de seu perfil.
+    </div>
+  @endif
+
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <th>Dado</th>
+      <th>Valor</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ID</td>
+        <td>{{ user.id }}</td>
+      </tr>
+      <tr>
+        <td>Nome de usuário</td>
+        <td><strong>{{ user.username }}</strong></td>
+      </tr>
+      <tr>
+        <td>E-Mail</td>
+        <td><strong><a href="mailto:{{ user.email }}">{{ user.email }}</a></strong></td>
+      </tr>
+      <tr>
+        <td>Membro desde</td>
+        <td><strong>{{ moment(user.created_at).format('DD/MM/YYYY - HH:mm:ss') }}</strong></td>
+      </tr>
+      <tr>
+        <td>Última visita</td>
+        <td>
+          <strong>
+            @if(user.last_visit != 0)
+              {{ moment(user.last_visit).format('DD/MM/YYYY - HH:mm:ss') }}
+            @else
+              Nenhuma visita ao site
+            @endif
+          </strong>
+        </td>
+      </tr>
+      <tr>
+        <td>Ativo</td>
+        <td>
+          @if(user.is_active == 1)
+            <i class="fa fa-check" style="color: green;"></i>
+          @else
+            <i class="fa fa-times" style="color: red;"></i>
+          @endif
+        </td>
+      </tr>
+      <tr>
+        <td>Grupo</td>
+        <td>
+          @if(user.group_id)
+            <strong style="color: {{ user.group.color }};" title="{{ user.group.description }}">
+              {{ user.group.name }}
+            </strong>
+          @else
+            Nenhum grupo
+          @endif
+        </td>
+      </tr>
+    </tbody>
+  </table>
+@endsection

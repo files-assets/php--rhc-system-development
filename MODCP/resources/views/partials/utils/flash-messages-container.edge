@@ -1,0 +1,35 @@
+{{-- Danger --}}
+@if(flashMessage('danger'))
+  <div class="alert alert-danger">
+    <div class="container">
+      {{ flashMessage('danger') }}
+    </div>
+  </div>
+@endif
+
+{{-- Success --}}
+@if(flashMessage('success'))
+  <div class="alert alert-success">
+    <div class="container">
+      {{ flashMessage('success') }}
+    </div>
+  </div>
+@endif
+
+{{-- Info --}}
+@if(flashMessage('info'))
+  <div class="alert alert-info">
+    <div class="container">
+      {{ flashMessage('info') }}
+    </div>
+  </div>
+@endif
+
+{{-- Warning --}}
+@if(flashMessage('warning'))
+  <div class="alert alert-warning">
+    <div class="container">
+      {{ flashMessage('warning') }}
+    </div>
+  </div>
+@endif

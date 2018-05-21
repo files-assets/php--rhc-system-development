@@ -1,0 +1,19 @@
+@layout('error')
+
+@section('title')
+  Erro de Autorização &middot; MODCP
+@endsection
+
+@section('content')
+  <span class="error-emoticon">(._.)!</span>
+  <h1 class="error-title">
+    Autenticação Necessária
+  </h1>
+  <p class="error-desc">
+    Para visualizar essa página, você precisa estar autenticado. <br />
+    Tente novamente após efetuar o log-in.
+  </p>
+  <a href="{{ route('login.get') }}" class="btn btn-light error-button">
+    <i class="fa fa-sign-in"></i> Login
+  </a>
+@endsection

@@ -1,0 +1,89 @@
+@layout('master')
+
+@section('title')
+  @if(data.page && data.page != 1)
+    Usuários — Página {{ data.page }} &middot; MODCP
+  @else
+    Usuários &middot; MODCP
+  @endif
+@endsection
+
+@section('breadcrumb')
+  <li class="breadcrumb-item">
+    Usuários
+  </li>
+@endsection
+
+@section('content')
+  <h1 class="mb-5">
+    <span>Lista de Usuários</span>
+    @if(data.page && data.page != 1)
+      <span> &middot; Página {{ data.page }}</span>
+    @endif
+  </h1>
+
+  @if(data.data.length != 0)
+    <table class="table table-hover text-center">
+      <thead class="thead-light">
+        <th>#</th>
+        <th>Nome de Usuário</th>
+        <th>Ativo</th>
+        <th>Grupo</th>
+        <th>Ações</th>
+      </thead>
+      <tbody>
+        @each(user in data.data)
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>
+              @if(now() - 1000 * 60 < user.last_visit)
+                <i class="fa fa-circle" style="color: green;" title="On-line"></i>
+              @endif
+              <a href="{{ route('users.show', { id: user.id }) }}">
+                {{ user.username }}
+              </a>
+            </td>
+            <td>
+              @if(user.is_active == 1)
+                <i class="fa fa-check" style="color: green;"></i>
+              @else
+                <i class="fa fa-times" style="color: red;"></i>
+              @endif
+            </td>
+            <td>
+              @if(user.group_id)
+                <strong style="color: {{ user.group.color }};">
+                  {{ user.group.name }}
+                </strong>
+              @else
+                Nenhum grupo
+              @endif
+            </td>
+            <td>
+              <a href="{{ route('users.show', { id: user.id }) }}" class="btn btn-primary btn-sm">
+                <i class="fa fa-eye"></i>
+              </a>
+              <a href="#" class="btn btn-primary btn-sm">
+                <i class="fa fa-pencil"></i>
+              </a>
+              <a href="#" class="btn btn-danger btn-sm">
+                <i class="fa fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        @endeach
+      </tbody>
+    </table>
+
+    @!component('components.pagination', page = data.page, lastPage = data.lastPage, href = route('users.index'))
+  @else
+    <div class="alert alert-dark">
+        <h4 class="alert-heading">Nenhum registro encontrado</h4>
+        <p>Nenhum registro foi encontrado seguindo os parâmetros de consulta.</p>
+        <hr />
+        <p class="mb-0">
+          Clique <a href="./?page=1" class="alert-link">aqui</a> para voltar à primeira página.
+        </p>
+    </div>
+  @endif
+@endsection
