@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt" class="is-auth">
+<head>
+  @section('head')
+    @include('partials.template.head')
+  @endsection
+
+  @if(__userdata__)
+    <script>
+      window.__userdata__ = {{{ toJSON(__userdata__) }}};
+    </script>
+  @endif
+</head>
+<body>
+  <div class="main-wrapper">
+    <header class="main-header">
+      @include('partials.template.navbar')
+    </header>
+
+    <main class="main-content">
+      <div class="flash-alert-zone">
+        @include('partials.utils.flash-messages-container')
+      </div>
+      <div class="container py-4">
+        @if(url !== '/')
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{{ route('index') }}" aria-label="Página Inicial">
+                  <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
+              </li>
+              @!section('breadcrumb')
+            </ol>
+          </nav>
+        @endif
+        @section('content')
+          <p>Whoops! Parece que você encontrou uma página vazia! õ-Õ</p>
+        @endsection
+      </div>
+    </main>
+
+    <footer class="main-footer">
+      @include('partials.template.footer')
+    </footer>
+  </div>
+
+  @!section('before-end')
+  @include('partials.template.scripts')
+</body>
+</html>

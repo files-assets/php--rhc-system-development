@@ -1,0 +1,58 @@
+@import url('./global.css');
+
+/**
+ * ---------------------------------------------------------------------
+ * Session Page Styles
+ * ---------------------------------------------------------------------
+ *
+ * For session pages.
+ * (Login, Register...)
+ *
+ */
+
+.session-page {
+  max-width: 390px;
+  margin-top: 5vh;
+}
+
+.session-page .session-title {
+  display: block;
+  text-align: center;
+  font-weight: 300;
+  font-size: 35px;
+  margin: 0;
+  color: #3c3c3c;
+}
+.session-page .session-title > i {
+  display: block;
+  font-size: 55px;
+  margin-bottom: 5px;
+}
+
+.session-page .session-title + .alert {
+  margin-top: 22px !important;
+  text-align: center;
+}
+
+.session-page .session-body {
+  border: solid 1px #ced4da;
+  border-radius: .25rem;
+  padding: 20px;
+  margin: 22px 0;
+}
+
+.session-page .session-body label {
+  color: #656769;
+}
+
+.session-page .session-body [type=submit] {
+  display: block;
+  width: 100%;
+}
+
+.session-page .session-footer {
+  border: solid 1px #ced4da;
+  border-radius: .25rem;
+  padding: 15px 20px;
+  text-align: center;
+}

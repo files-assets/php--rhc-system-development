@@ -1,0 +1,79 @@
+@import url('./global.css');
+
+/**
+ * ---------------------------------------------------------------------
+ * Main
+ * ---------------------------------------------------------------------
+ */
+html,
+body,
+.main-wrapper {
+  min-height: 100vh;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper > .main-content {
+  flex-grow: 1;
+}
+
+.flash-alert-zone .alert {
+  border-radius: 0px;
+  padding: 20px;
+}
+
+/**
+ * ---------------------------------------------------------------------
+ * Footer
+ * ---------------------------------------------------------------------
+ */
+.main-footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.main-footer a:hover {
+  color: #ddd;
+}
+
+/**
+ * ---------------------------------------------------------------------
+ * Info Cards
+ * ---------------------------------------------------------------------
+ */
+.info-card-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info-card-inner .icon {
+  font-size: 5em;
+}
+
+.info-card-inner .info {
+  text-align: right;
+}
+
+.info-card-inner .info .main {
+  display: block;
+  font-size: 2.9rem;
+  letter-spacing: 3px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.info-card-inner .info .desc {
+  font-weight: 400;
+  font-size: 1.05rem;
+}
